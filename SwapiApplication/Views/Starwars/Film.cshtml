@@ -1,0 +1,74 @@
+﻿@model SwapiApplication.ViewModels.Starwars.FilmViewModel
+
+@{
+    ViewBag.Title = "FilmDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Film.title</h2>
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Description
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>Director</dt>
+                    <dd>@Model.Film.director</dd>
+                    <dt>Producer</dt>
+                    <dd>@Model.Film.producer</dd>
+                    <dt>Release date</dt>
+                    <dd>@Model.Film.release_date</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Storyline
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                <p> @Model.Film.opening_crawl</p>
+            </div>
+        </div>
+    </div>
+    @if (Model.People != null)
+    {
+        <div class="panel panel-primary">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        People
+                    </a>
+                </h4>
+            </div>
+
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    <div class="list-group">
+                        @{
+                            foreach (var item in Model.People)
+                            {
+                                @Html.ActionLink(item.name, "People", "Starwars", new { name = item.name }, new { @class = "list-group-item" })
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

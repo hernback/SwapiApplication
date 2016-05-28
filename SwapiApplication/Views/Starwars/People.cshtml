@@ -1,0 +1,61 @@
+﻿@model SwapiApplication.ViewModels.Starwars.PeopleViewModel
+@{
+    ViewBag.Title = "People";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.People.name</h2>
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Description
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <dl class="dl-horizontal">
+                            <dt>Year of birth</dt>
+                            <dd>@Model.People.birth_year</dd>
+                            <dt>Eye color</dt>
+                            <dd>@Model.People.eye_color</dd>
+                            <dt>Gender</dt>
+                            <dd>@Model.People.gender</dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-6">
+                        <dl class="dl-horizontal">
+                            <dt>Year of birth</dt>
+                            <dd>@Model.People.birth_year</dd>
+                            <dt>Skin color</dt>
+                            <dd>@Model.People.skin_color</dd>
+                            <dt>Homeworld</dt>
+                            <dd>@Model.People.homeworld</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Starships
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                @*<p> @Model.People.</p>*@
+            </div>
+        </div>
+    </div>
+</div>
+

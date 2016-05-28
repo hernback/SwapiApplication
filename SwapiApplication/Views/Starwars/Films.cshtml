@@ -1,0 +1,26 @@
+﻿@model SwapiApplication.ViewModels.Starwars.FilmsViewModel
+@{
+    ViewBag.Title = "Pick a film";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Welcome to Starwars archives</h2>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Pick a film</h2> 
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="list-group">
+            @{
+                foreach (var item in Model.AvailableFilms)
+                {
+                    @Html.ActionLink(@item.title, "Film", "Starwars", new { id = item.episode_id}, new { @class = "list-group-item" })
+                }
+            }
+
+        </div>
+    </div>
+</div>
